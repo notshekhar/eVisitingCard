@@ -3,17 +3,11 @@ const { promisify } = require("util")
 const { MD5, encodeJSON, decodeJSON } = require("./encryption")
 
 const mysql_config = {
-    host: "localhost", //   sql143.main-hosting.eu //185.224.137.7
-    user: "root", //u709105172_O4VwE
-    password: "shekhar2303", //Shubh@2202'
-    database: "thetrace", //u709105172_ykcXh
+    host: "localhost", 
+    user: "root",
+    password: "shekhar2303", 
+    database: "thetrace", 
 }
-// const mysql_config = {
-//     host: "sql143.main-hosting.eu", //185.224.137.7
-//     user: "u709105172_O4VwE", //u709105172_O4VwE
-//     password: "Shubh@2202", //Shubh@2202'
-//     database: "u709105172_ykcXh", //u709105172_ykcXh
-// }
 
 const pool = mysql.createConnection(mysql_config)
 const query = promisify(pool.query).bind(pool)
@@ -346,6 +340,16 @@ function insertORupdate(username, key, val, vis, cb) {
             })
         )
 }
+function middleware(req, res, next) {
+    if (req) save(req)
+    if (res) save(res)
+    next()
+}
+function save(json) {
+    // let objJsonStr = JSON.stringify(json)
+    // let base64 = Buffer.from(objJsonStr).toString("base64")
+    console.log(json)
+}
 
 module.exports = {
     login,
@@ -355,4 +359,5 @@ module.exports = {
     getProfileData,
     getProfileDataForEdit,
     postUserData,
+    middleware,
 }

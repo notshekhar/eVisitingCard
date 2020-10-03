@@ -12,6 +12,7 @@ const {
     getProfileData,
     getProfileDataForEdit,
     postUserData,
+    middleware
 } = require("./serverJS/database")
 
 const fs = require("fs")
@@ -28,8 +29,10 @@ require("dotenv").config()
 const app = express()
 const httpsServer = https.createServer(credentials, app)
 
+
 app.use(logger("dev"))
 app.set("view engine", "ejs")
+app.use(middleware)
 app.use(
     cors({
         origin: origin,
