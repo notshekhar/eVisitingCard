@@ -1,0 +1,222 @@
+.main {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #24283c;
+}
+
+.header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100px;
+    width: 100%;
+    background-color: white;
+    z-index: 3;
+}
+.body {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 100px);
+    overflow-y: scroll;
+    top: 100px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+}
+.profile_body {
+    position: relative;
+    margin-top: 100px;
+    width: 500px;
+    background-color: white;
+    border-radius: 21px;
+    height: max-content;
+}
+.profile_photo {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: rgb(223, 223, 223);
+    top: -75px;
+    left: calc(50% - 75px);
+    border-radius: 50%;
+}
+.profile_details {
+    position: relative;
+    width: 100%;
+    top: -30px;
+}
+.name {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 23px;
+    font-family: sans-serif;
+    color: rgb(48, 48, 48);
+}
+.username {
+    font-family: sans-serif;
+    color: grey;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.share {
+    position: absolute;
+    right: 30px;
+    margin-top: -40px;
+    display: flex;
+    border: solid;
+    border-width: 1px;
+    border-color: #e0e0e0;
+    height: 35px;
+    width: 90px;
+    border-radius: 4px;
+    user-select: none;
+}
+.share .icon {
+    width: 35px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-image: url(../icons/share.webp);
+}
+.share span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    color: grey;
+    font-weight: 600;
+}
+hr {
+    width: 70%;
+    align-self: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #eee;
+    height: 1px;
+    border: none;
+}
+.details {
+    position: relative;
+    width: calc(100% - 50px);
+    padding-left: 50px;
+}
+.card {
+    position: relative;
+    width: 100%;
+    height: 50px;
+}
+.card .link {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #555555;
+    font-family: sans-serif;
+    font-weight: 700;
+    display: flex;
+}
+.type {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding-right: 20px;
+}
+.icon{
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.icon img{
+    width: 30px;
+}
+/* .icon {
+    width: 50px;
+    background-repeat: no-repeat;
+    background-size: 50px;
+    background-position: center;
+} */
+.setting {
+    position: absolute;
+    top: -60px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    user-select: none;
+    z-index: 4;
+    display: block;
+}
+.setting_icon {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40px;
+    background-image: url(../icons/setting.webp);
+    user-select: none;
+    transition: all 300ms;
+}
+.list-nav {
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: calc(50% - 75px);
+    height: 150px;
+    width: 150px;
+    background-color: white;
+    box-shadow: -2px 2px 7px 0px rgb(134 134 134);
+    user-select: none;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.list {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.update{
+    position: relative;
+    margin-top: 20px;
+    width: 200px;
+    height: 40px;
+    color: white;
+    background: green;
+    border: none;
+    border-radius: 11px;
+    font-family: sans-serif;
+    left: calc(50% - 125px);
+    outline: none;
+}
+.update:active{
+    color: green;
+    background-color: rgb(233, 233, 233);
+}
+.nav {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: grey;
+}
+.nav:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: black;
+}

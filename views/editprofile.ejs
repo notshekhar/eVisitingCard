@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            <% if (data.get) { %> 
+                <%= data.data.name %>
+            <% } else { %>
+                Edit Profile
+            <% } %>
+        </title>
+        <link rel="stylesheet" href="../editprofile.css">
+        <script src="../cookiesAndLocalStorageHook.js"></script>
+        <script src="../index.js"></script>
+    </head>
+    <body>
+        <div class="main"></div>
+        <div class="header"></div>
+        <div class="share_body">
+            <div class="share_facebook"></div>
+            <div class="share_whatsapp"></div>
+        </div>
+        <div class="body">
+            <div class="profile_body">
+                <% if (auth) {%>
+                    <div class="setting">
+                        <div class="setting_icon" onclick="handleSettingMenu()"></div>
+                        <div class="list-nav">
+                            <div class="list">
+                                <!-- <div class="nav editProfile" onclick="location.href='myaccount'">
+                                    Edit Profile
+                                </div> -->
+                                <div class="nav logout" onclick="logout()">Logout</div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %> 
+                <div class="profile_photo"></div>
+                <div class="profile_details">
+                    <div class="name"><%= data.data.name %></div>
+                    <div class="username"><%= data.data.username %></div>
+                    <div class="share" onclick="handleShare(<%= JSON.stringify(data.data) %>)"><div class="icon"></div><span>Share</span></div>
+                    <% delete data.data.username %>
+                    <% delete data.data.name %>
+                    <hr>
+                    <div class="details">
+                        <form action="/postUserData" method="POST">
+                            <% if (data.get) { %> 
+                                <% if (data.data) { %> 
+                                    <% for(let detail of data.data.details) { %>
+                                        <div class="wrap">
+                                            <div class="card">
+                                                <div class="icon <%= detail.type.toLowerCase() %>">
+                                                    <img src="<%= detail.icon %>" alt="">
+                                                </div>
+                                                <div class="default"><%= detail.default_value %></div>
+                                                <input class="type" value="<%= detail.link %>" placeholder="<%= capitalize(detail.type) %>" name="<%= detail.type.toLowerCase() %>">
+                                            </div>
+                                            <label class="switch">
+                                                <input class="checkbox" type="checkbox" <% if(detail.visibility == 'true') {%>checked <% } %>>
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    <% } %> 
+                                <% } else { %>
+                                    <h1>No data</h1>
+                                <% } %> 
+                            <% } else { %>
+                                <h1>Some Internal Error</h1>
+                            <% } %>
+                            <button type="submit" class="update">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../editprofile.js"></script>
+    </body>
+</html>

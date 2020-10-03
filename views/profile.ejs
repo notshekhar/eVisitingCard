@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title><%= data.data.name %></title>
+        <link rel="stylesheet" href="../profile.css">
+        <script src="../cookiesAndLocalStorageHook.js"></script>
+        <script src="../index.js"></script>
+    </head>
+    <body>
+        <div class="main"></div>
+        <div class="header"></div>
+        <div class="share_body">
+            <div class="share_facebook"></div>
+            <div class="share_whatsapp"></div>
+        </div>
+        <div class="body">
+            <div class="profile_body">
+                <% if (auth) {%>
+                    <div class="setting">
+                        <div class="setting_icon" onclick="handleSettingMenu()"></div>
+                        <div class="list-nav">
+                            <div class="list">
+                                <div class="nav editProfile" onclick="location.href='myaccount'">
+                                    Edit Profile
+                                </div>
+                                <div class="nav logout" onclick="logout()">Logout</div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %> 
+                <div class="profile_photo"></div>
+                <div class="profile_details">
+                    <div class="name"><%= data.data.name %></div>
+                    <div class="username"><%= data.data.username %></div>
+                    <div class="share" onclick="handleShare(<%= JSON.stringify(data.data) %>)"><div class="icon"></div><span>Share</span></div>
+                    <% delete data.data.username %>
+                    <% delete data.data.name %>
+                    <hr>
+                    <div class="details">
+                        <% if (data.get) { %> 
+                            <% if (data.data.links.length > 0) { %> 
+                                <% for(let link of data.data.links) { %>
+                                    <div class="card">
+                                        <a class="link" target="blank" href="<%= link.default_value %><%= link.link %> ">
+                                            <div class="icon <%= link.type.toLowerCase() %>">
+                                                    <img src="<%= link.icon %>" alt="">
+                                                </div>
+                                            <div class="type"><%= capitalize(link.type) %> </div>
+                                        </a>
+                                    </div>
+                                <% } %> 
+                            <% } else { %>
+                                <h1>No data</h1>
+                            <% } %> 
+                        <% } else { %>
+                            <h1>Some Internal Error</h1>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

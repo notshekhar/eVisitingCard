@@ -1,0 +1,22 @@
+{
+    "name": "notshekhar",
+    "version": "0.0.0",
+    "author": "notshekhar",
+    "private": true,
+    "scripts": {
+        "start": "node ./server",
+        "dev": "nodemon ./server"
+    },
+    "dependencies": {
+        "cookie-parser": "~1.3.4",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "ejs": "^3.1.5",
+        "express": "^4.17.1",
+        "https": "^1.0.0",
+        "jsonwebtoken": "^8.5.1",
+        "morgan": "^1.10.0",
+        "mysql": "^2.18.1",
+        "nodemon": "^2.0.4"
+    }
+}
