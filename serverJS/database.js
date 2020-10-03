@@ -5,8 +5,8 @@ const { MD5, encodeJSON, decodeJSON } = require("./encryption")
 const mysql_config = {
     host: "localhost", 
     user: "root",
-    password: "shekhar2303", 
-    database: "thetrace", 
+    password: "", 
+    database: "", 
 }
 
 const pool = mysql.createConnection(mysql_config)
